@@ -1,4 +1,6 @@
 from flask import Flask, request, render_template
+from datetime import datetime
+import time
 
 #by zaczac uzylem samouczka ze strony: https://analityk.edu.pl/python-flask-instalacja-oraz-hello-world/
 #Uczy podstaw serwera webowego opartego na pythonie z uzyciem biblioteki flask
@@ -69,5 +71,15 @@ def odejmij(numer1,numer2):
     wynik = int(numer1) - int(numer2)
     return f'Wynik: {wynik}'
 
+@app.route('/innastrona1')           #analogicznie, przy sciezce dostepowej do serwera z dopiskiem /innastrona
+def innastrona1():
+    return f'<p>Czas: {datetime.now()}<p>'
+
+
 if __name__ == '__main__':
     app.run(debug=False)
+
+'''while True:
+    now=datetime.now()
+    print(now.strftime('%Y:%B:%D,%H:%M:%S'))
+    time.sleep(1) '''   
